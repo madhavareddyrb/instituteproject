@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
 #forms import ContactForm
-#from .forms import CommentForm
-#from .models import Comment
 #from .models import CourseDetails
-from .forms import RegistraionForm
+from .forms import RegistraionForm, FeedbackForm
 from .models import *
 from .forms import *
 from django.contrib import admin
@@ -22,10 +20,10 @@ def services(request):
   courses = CourseDetails.objects.all()
   return render(request,'services.html' ,{'courses':courses})
 
-@login_required
+""" @login_required
 def feedback(request):
   return render(request,'feedback.html')
-
+ """
 def contact(request):
   return render(request, 'contact.html')
 
@@ -46,46 +44,36 @@ def contact(request):
 def contact_success(request):
   return render(request, 'contact_success.html')
 
-
+@login_required
 def feedback(request):
     if request.method == 'POST':
-        form = CommentForm(request.POST)
+        form = FeedbackForm(request.POST)
         if form.is_valid():
-            form.save()
+            form.instance.user = request.user
+            feedback = form.save(commit=False)
+            feedback.save()
             return redirect('feedback')
     else:
-        form = CommentForm()
+        form = FeedbackForm()
     
-    comments = Comment.objects.all()
-    return render(request, 'feedback.html', {'form': form, 'comments': comments})
+    feedbacks = Feedback.objects.all()
+    return render(request, 'feedback.html', {'form': form, 'feedbacks': feedbacks})
 
 
-""" def register_view(request):
+def register_view(request):
    if request.method == "POST":
     form = RegistraionForm(request.POST)
     if form.is_valid():
       user = form.save()
       login(request,user)
-      return render("request, 'register.html")
+      return render("request, 'registraion_success.html")
     else:
-      return render(request, "register.html", {"form":form})
+      return render(request, "registraion_success.html", {"form":form})
    else:
     form = RegistraionForm()
-   return render(request, "register.html", {"form":form}) """
+   return render(request, "register.html", {"form":form})
 
 
-def register_view(request):
-  if request.method == "POST":
-    form = RegistraionForm(request.POST)
-    if form.is_valid():
-      user = form.save()
-      login(request, user)
-      return render(request, "registraion_success.html")
-    else:
-      return render(request, "register.html", {"form": form})
-  else:
-    form = RegistraionForm()
-    return render(request, "register.html", {"form": form})
 def registraion_success(request):
   return render(request, 'registraion_success.html')
 

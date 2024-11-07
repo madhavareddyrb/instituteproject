@@ -1,8 +1,76 @@
-body{
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
   background-color: #0077b6;
   color:#fff;
   font-family: serif;
   box-sizing: border-box;
   font-size: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Responsive Breakpoints */
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 80%;
+    padding: 10px;
+  }
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    padding: 5px;
+  }
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Common Elements */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #337ab7;
+}
+
+a:hover {
+  color: #23527c;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 

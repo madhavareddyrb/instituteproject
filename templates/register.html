@@ -1,4 +1,4 @@
-{% comment %} {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,10 +22,29 @@
       border:2px solid #ade8f4;
       background:#03045e;
       padding:30px;
-      border-radius:10px;
+      border-radius:10px;         
+    }
+    button{
+      border:2px solid #023e8a;
+      border-radius:9px;
+      padding:5px;
+      margin-bottom: 10px;
 
+    }
+    button[type='submit']{
+      background:#caf0f8;
+    }
+    button[type='submit']:hover{
+      background: #023e8a;
+      color:#fff;
+    }
+    button[type='reset']{
+      background: #caf0f8;
       
-      
+    }
+    button[type='reset']:hover{
+      background: #023e8a;
+      color:#fff;
     }
   </style>
 </head>
@@ -48,54 +67,5 @@
     </div>
   </div>
   
-</body>
-</html> {% endcomment %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <style>
-    
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    
-</head>
-<body>
-
-<div class="container">
-    <h2>Register Here</h2>
-
-    <form method="POST" action="{% url 'register' %}">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-
-        <div class="form-group form-control">
-            <label for="username">Username:</label>
-            {{ form.username }}
-        </div>
-
-        <div class="form-group form-control">
-            <label for="email">Email:</label>
-            {{ form.email }}
-        </div>
-
-        <div class="form-group form-control">
-            <label for="password1">Password:</label>
-            {{ form.password1 }}
-        </div>
-
-        <div class="form-group form-control" >
-            <label for="password2">Password confirmation:</label>
-            {{ form.password2 }}
-        </div>
-
-        <button type="submit" class="btn btn-primary">Register</button>
-        <button type="reset" class="btn btn-secondary">Reset</button>
-    </form>
-
-    <p>Already have an account? <a href="{% url 'login' %}">Login Here</a>.</p>
-</div>
-
 </body>
 </html>

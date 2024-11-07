@@ -18,23 +18,32 @@
   {% endblock %}
 
   <style>
+    footer{
+      margin-top:20px;
+      margin-bottom:0;
+      
+    }
     footer img{
       width:40px;
       height:40px;
       margin-bottom: 10px;
+      
+      
+    }
+    footer li{
+      align-items:center;
+      justify-content:center;
+      list-style:none;
     }
   </style>
 
-  <footer style="position:relative;
-  z-index: 1;
-  bottom:0;
-  " class="bg-dark text-white mt-6">
-    <div class="container row col-md-12">
+  <footer  class="bg-dark text-white">
+    <div class="container-fluid row col-md-12">
       <div class="col-md-5">
         <h3 class="mt-2">About Institute</h3>
         <p>The Python Institute is dedicated to providing high-quality education in Python programming, full-stack web development, and data analysis. Our curriculum focuses on hands-on learning, practical projects, and expert guidance to help students of all levels master programming skills and advance their careers in tech. Whether you're a beginner or looking to deepen your knowledge, the Python Institute offers a supportive learning environment to help you achieve your goals.</p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 m-0">
         <h3 class="mt-2">Our Services</h3>
         <ol>
           <li>Python Programming</li>
@@ -48,7 +57,7 @@
           
         </ol>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 ">
         <h3 class="mt-2">Social Media</h3>
         <li>
 
@@ -66,8 +75,11 @@
 
         </li>
         <li>
+          <a href="https://github.com/madhavareddyrb/instituteproject"> <img style='border-radius:20px' src="{% static '../static/images/github.jpg' %}" alt="github"></a>
+        </li>
+        <li>
 
-          <a href="https://www.linkedin.com/in/madhavareddyrb/"><img  src="{% static '../static/images/linkedin-big-logo.png' %}" alt="linkedin"></a>
+          <a href="https://www.linkedin.com/in/madhavareddyrb/"><img style='border-radius:20px' src="{% static '../static/images/linkedin-big-logo.png' %}" alt="linkedin"></a>
         </li>
         
 

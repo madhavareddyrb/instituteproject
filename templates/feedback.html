@@ -1,28 +1,47 @@
 {% extends 'base.html' %}
-
 {% block nth%}
 {% load static %}
 <link rel="stylesheet" href="{% static '../static/style.css' %}">
 <style>
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.feedback-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+}
+button{
+    padding:10px;
+    border-radius:5px;
+    border:none;
+    margin-bottom: 10px;
+    background:#03045e;
+    color:#fff;
+}
 </style>
-    
 <div class="container-fluid offset-4 col-md-4">
     <h1>Feedback</h1>
-
-    <form method="post">
+    <form action="{% url 'feedback' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Submit</button>
+        <button  type="submit">Submit Feedback</button>
     </form>
-    
 </div>
 
-<h2 class="ml-5">Comments</h2>
-<div class="container-fluid row col-md-12">
-    
-    
+{% for feedback in feedbacks %}
+<div class="feedback-list">
+    <div class="feedback-item text-dark">
+        <strong> {{ feedback.user.username }} </strong> 
+            <p>{{feedback.content}}</p>
+        </div>
+        {% empty %}
+        <p>No Feedback Yet. Be the first to share your experience</p>
+        
+        {% endfor %}
 </div>
-
-
-
 {% endblock %}

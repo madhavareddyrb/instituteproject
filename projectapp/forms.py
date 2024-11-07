@@ -1,6 +1,6 @@
 from django import forms
 from .models import contact
-from .models import Comment
+from .models import Feedback
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -12,19 +12,22 @@ class ContactForm(forms.ModelForm):
 
 
 
-class CommentForm(forms.ModelForm):
+class FeedbackForm(forms.ModelForm):
     class Meta:
-        model = Comment
-        fields = ('name', 'comment')
+        model = Feedback
+        fields = ['content']
+        widgets = {
+            'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
+        }
 
-""" class RegistraionForm(UserCreationForm):
+class RegistraionForm(UserCreationForm):
    email = forms.EmailField(required=True)
 
    class Meta:
       model = User
-      fields = ['username',"email",'password','password2'] """
+      fields = ['username',"email",'password','password2']
 
-class RegistraionForm(UserCreationForm):
+""" class RegistraionForm(UserCreationForm):
     email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         'placeholder': 'Email',
         'class': 'form-control'
@@ -44,4 +47,4 @@ class RegistraionForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2'] """
