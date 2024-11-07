@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+<h2 class="m-3">home page</h2>
+{% block nth %}
+{% load static %}
+<link rel="stylesheet" href="{% static '../static/style.css' %}">
+<style>
+  section p{
+    
+    border:2px solid #90e0ef;
+
+    padding:10px 5px;
+    
+    border-radius:10%;
+    margin-left:10px;
+  }
+</style>
+
+<div class=" container-fluid">
+
+  <div class="row">
+    <div class="col-md-3">
+      <img style="width: 300px;
+      height: 250px;" src="{% static '../static/images/images.jpg' %}" alt="My image">
+
+    </div>
+    <div class="col-md-8">
+
+      <p class="fs-5 mr-0">
+   
+      Welcome to the Python Institute, a dedicated platform for aspiring programmers and tech enthusiasts to master Python from beginner to advanced levels. Whether you're looking to kickstart your career in programming or sharpen your skills, our institute offers comprehensive, hands-on learning experiences.
+      </p>
+      <p class="mr-0">Python is a versatile and widely-used programming language that can open doors to new career opportunities and enhance your skills in data science, machine learning, web development, and more. <br>
+       At [Institute Name], we aim to provide high-quality Python training and education to individuals of all skill levels. Our expert instructors and comprehensive curriculum will help you master the fundamentals of Python and stay up-to-date with the latest industry trends.
+      </p>
+    </div>
+  </div>
+
+</div>
+<section>
+
+  <div class="container col-md-12">
+    <h2 class="offset-5 mb-4">
+      Our Achievements:
+    </h2>
+    <div class="row">
+      
+  
+    <p class="col-md-3">
+  
+    <b>1000+ Trained Professionals:</b> <br>We’ve empowered over a thousand learners with practical Python skills.
+  </p>
+  
+    <p class="col-md-3">
+  
+      <b>90% Job Placement Rate:</b> <br>Our graduates are highly sought-after, with a majority landing roles in top tech firms.
+    </p>
+    
+    <p class="col-md-3">
+  
+      <b>Award-Winning Curriculum:</b> <br>Recognized for excellence in tech education, our course material is continuously updated to reflect industry trends.
+    </p>
+    <p class="col-md-2">
+   <b>Global Reach:</b> <br>Students from over 20 countries have benefited from our programs.
+  </p>
+  
+  </div>
+</section>
+
+</div>
+
+
+{% endblock %}
+

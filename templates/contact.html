@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block nth %}
+{% load static %}
+{% include "cdnlines.html" %}
+<link rel="stylesheet" href="{% static '../static/style.css' %}">
+<style>
+  form{
+    
+  }
+</style>
+<div class="container offset-4 col-md-3">
+  <h1 class="mt-3">Contact Us</h1>
+  <form action="" method="post" class="mb-5">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}

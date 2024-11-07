@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  {% include "cdnlines.html" %}
+  <link rel="stylesheet" href="{% static '../static/style.css' %}">
+  <style>
+    body{
+      box-sizing:border-box;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;     
+
+    }
+    div{
+      background: #03045e;
+      border: 2px solid #caf0f8;
+      padding:40px;
+      border-radius:10px;
+
+    }
+    button{
+      border:none;
+      padding:5p;
+      border-radius:5px;
+      cursor: pointer;
+      margin-bottom:10px;
+    }
+    button[type='submit']{
+      background: #48cae4;
+    }
+    button[type="submit"]:hover{
+      background:#90e0ef;
+    }
+    button[type='reset']{
+      background:#ade8f4;
+    }
+  </style>
+</head>
+<body>
+  <div>
+
+    <h2>Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button  type="submit">Login</button>
+      <button type="reset">Cancel</button>
+    </form>
+    <p>Don’t have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+    
+  </div>
+</body>
+</html>

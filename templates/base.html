@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>institute</title>
+  
+  <link rel="stylesheet" href="{% static '../static/style.css' %}">
+    {% include "cdnlines.html" %}
+</head>
+<body>
+  {% include 'navbar.html' %}
+  <h1 class="text-center">Welcome to Python Learning Institute</h1>
+
+  {% block nth %}
+
+  {% endblock %}
+
+  <style>
+    footer img{
+      width:40px;
+      height:40px;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <footer style="position:relative;
+  z-index: 1;
+  bottom:0;
+  " class="bg-dark text-white mt-6">
+    <div class="container row col-md-12">
+      <div class="col-md-5">
+        <h3 class="mt-2">About Institute</h3>
+        <p>The Python Institute is dedicated to providing high-quality education in Python programming, full-stack web development, and data analysis. Our curriculum focuses on hands-on learning, practical projects, and expert guidance to help students of all levels master programming skills and advance their careers in tech. Whether you're a beginner or looking to deepen your knowledge, the Python Institute offers a supportive learning environment to help you achieve your goals.</p>
+      </div>
+      <div class="col-md-3">
+        <h3 class="mt-2">Our Services</h3>
+        <ol>
+          <li>Python Programming</li>
+          
+          <li>Data Analysis</li>
+          <li>Machine Learning</li>
+        
+          <li>Artificial Intelligence</li>
+          <li>Data Science</li>
+          <li>Full Stack Development</li>
+          
+        </ol>
+      </div>
+      <div class="col-md-2">
+        <h3 class="mt-2">Social Media</h3>
+        <li>
+
+          
+          <a href="https://www.instagram.com/madhava___reddy/">
+            <img   src="{% static '../static/images/instagram.png' %}" alt="My image">
+
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/"><img src="{% static '../static/images/facebook.png' %} " alt="facebook"></a>
+        </li>
+        <li>
+          <a href="https://web.whatsapp.com/"><img src=" {% static '../static/images/whatsapp.png' %}" alt="whatsapp"></a>
+
+        </li>
+        <li>
+
+          <a href="https://www.linkedin.com/in/madhavareddyrb/"><img  src="{% static '../static/images/linkedin-big-logo.png' %}" alt="linkedin"></a>
+        </li>
+        
+
+      </div>
+      <div class="col-md-1">
+        <h3 class="mt-2">Pages</h3>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'services'%}">Services</a>
+        <a href="{% url 'feedback' %}">Feedback</a>
+        <a href="http://127.0.0.1:8000/gallery">Gallery</a>
+        <a href="{% url 'gallery' %'}">Gallery</a>
+      </div>
+      
+    </div>
+  </footer>
+</body>
+</html>

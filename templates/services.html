@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block nth%}
+{% load static %}
+<link rel="stylesheet" href="{% static '../static/style.css' %}">
+<style>
+  tr{
+    color:#fff;
+  }
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <table class = "table">
+        <thead>
+          <tr>          
+            <th>course_name</th>
+            <th>course_fee</th>
+            <th>timings</th>
+            <th>start_date</th>
+            <th>duration</th>
+            <th>instructor</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          {% for i in courses %}
+            <tr>
+              
+              <td>{{i.course_name}}</td>
+              <td>{{i.course_fee}}</td>
+              <td>{{i.timings}}</td>
+              <td>{{i.start_datem}}</td>
+              <td>{{i.duration}}</td>
+              <td>{{i.instructor}}</td>
+            </tr>
+          {% endfor %}
+            
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

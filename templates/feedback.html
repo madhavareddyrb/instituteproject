@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block nth%}
+{% load static %}
+<link rel="stylesheet" href="{% static '../static/style.css' %}">
+<style>
+</style>
+    
+<div class="container-fluid offset-4 col-md-4">
+    <h1>Feedback</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    
+</div>
+
+<h2 class="ml-5">Comments</h2>
+<div class="container-fluid row col-md-12">
+    
+    
+</div>
+
+
+
+{% endblock %}

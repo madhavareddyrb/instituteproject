@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block nth %}
+<link rel="stylesheet" href="{% static '../static/style.css' %}">
+<h1 class="text-center">Gallery</h1>
+<div class="grid-container offset-1 col-md-11 row mb-3">
+  <div class="col-md-4 mb-3">
+    <img style="width: 300px;
+    height: 250px;" src="{% static '../static/images/img1.webp' %}" alt="My image">
+  </div>
+  <div class="col-md-4 mb-3">
+    <img style="width: 300px;
+    height: 250px;" src="{% static '../static/images/img2.jpeg' %}" alt="My image">
+  </div>
+  <div class="col-md-4 mb-3">
+    <img style="width: 300px;
+    height: 250px;" src="{% static '../static/images/img3.jpeg' %}" alt="My image">
+  </div>
+  <div class="col-md-4 mb-3">
+    <img style="width: 300px;
+    height: 250px;" src="{% static '../static/images/img4.jpeg' %}" alt="My image">
+  </div>
+  <div class="col-md-4 mb-3">
+    <img style="width: 300px;
+    height: 250px;" src="{% static '../static/images/img5.jpeg' %}" alt="My image">
+  </div>
+  <div class="col-md-4 mb-3">
+    <img style="width: 300px; height: 250px;
+    " src="{% static '../static/images/img6.jpeg' %}" alt="My image">
+  </div>
+
+
+ 
+</div>
+
+{% endblock %}
