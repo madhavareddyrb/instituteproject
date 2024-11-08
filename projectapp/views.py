@@ -59,6 +59,29 @@ def feedback(request):
     feedbacks = Feedback.objects.all()
     return render(request, 'feedback.html', {'form': form, 'feedbacks': feedbacks})
 
+<<<<<<< HEAD
+=======
+@login_required
+def update_feedback(request, pk):
+    feedback = Feedback.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST, instance=feedback)
+        if form.is_valid():
+            form.save()
+            return redirect('feedback')
+    else:
+        form = FeedbackForm(instance=feedback)
+    return render(request, 'update_feedback.html', {'form': form})
+
+@login_required
+def delete_feedback(request, pk):
+    feedback = Feedback.objects.get(pk=pk)
+    if request.method == 'POST':
+        feedback.delete()
+        return redirect('feedback')
+    return render(request, 'delete_feedback.html', {'feedback': feedback})
+
+>>>>>>> 6c65665 (merged)
 
 def register_view(request):
    if request.method == "POST":

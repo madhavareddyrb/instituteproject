@@ -33,5 +33,10 @@ urlpatterns = [
     path("login/",views.login_view,name="login"),
     path("logout/",views.logout_view,name="logout"),
     path("registraion_success/",views.registraion_success,name="registraion_success"),
+<<<<<<< HEAD
+=======
+    path('feedback/update/<int:pk>/', views.update_feedback, name='feedback_update'),
+    path('feedback/delete/<int:pk>/', views.delete_feedback, name='feedback_delete'),
+>>>>>>> 6c65665 (merged)
 
 ]
