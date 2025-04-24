@@ -9,9 +9,19 @@
   {% include "cdnlines.html" %}
 </head>
 <body>
+  <style>
+    div{
+      background: #03045e;
+      border: 2px solid #caf0f8;
+      padding:40px;
+      border-radius:10px;
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
   <div class="container-fluid ofset-4 col-md-4 justify-content-center align-content-center">
-    <h3 class="text-dark">Thanks for Creating Account</h3>
-    <a class="bg-light" href="{% url 'login' %}">Please Login here</a>
+    <h3 class="bg-blue">Thanks for Creating Account</h3>
+    <a class="bg-blue" href="{% url 'login' %}">Please Login here</a>
   </div>
 </body>
 </html>

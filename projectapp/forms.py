@@ -19,14 +19,15 @@ class FeedbackForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
         }
 
-class RegistraionForm(UserCreationForm):
+'''class RegistraionForm(UserCreationForm):
    email = forms.EmailField(required=True)
 
    class Meta:
       model = User
-      fields = ['username',"email",'password','password2']
+      fields = ['username',"email",'password1','password2']'''
 
-""" class RegistraionForm(UserCreationForm):
+
+class RegistraionForm(UserCreationForm):
     email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         'placeholder': 'Email',
         'class': 'form-control'
@@ -46,4 +47,4 @@ class RegistraionForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2'] """
+        fields = ['username', 'email', 'password1', 'password2']
