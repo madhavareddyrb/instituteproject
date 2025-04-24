@@ -11,7 +11,11 @@
 </head>
 <body>
   {% include 'navbar.html' %}
-  <h1 class="text-center">Welcome to Python Learning Institute</h1>
+  <h1 class="text-center"> 
+  {% block head %}
+  Welcome to Python Learning Institute</h1>
+  {% endblock %}
+  
 
   {% block nth %}
 
@@ -20,15 +24,12 @@
   <style>
     footer{
       margin-top:20px;
-      margin-bottom:0;
-      
+      margin-bottom:0;     
     }
     footer img{
       width:40px;
       height:40px;
-      margin-bottom: 10px;
-      
-      
+      margin-bottom: 10px;    
     }
     footer li{
       align-items:center;
@@ -37,34 +38,28 @@
     }
   </style>
 
-  <footer  class="bg-dark text-white">
+  <footer  class="bg-dark text-white fs-5">
     <div class="container-fluid row col-md-12">
-      <div class="col-md-5">
+      <div class="col-md-5 fs-3">
         <h3 class="mt-2">About Institute</h3>
-        <p>The Python Institute is dedicated to providing high-quality education in Python programming, full-stack web development, and data analysis. Our curriculum focuses on hands-on learning, practical projects, and expert guidance to help students of all levels master programming skills and advance their careers in tech. Whether you're a beginner or looking to deepen your knowledge, the Python Institute offers a supportive learning environment to help you achieve your goals.</p>
+        <p style="font-size: 1.5rem;">The Python Institute is dedicated to providing high-quality education in Python programming, full-stack web development, and data analysis. Our curriculum focuses on hands-on learning, practical projects, and expert guidance to help students of all levels master programming skills and advance their careers in tech. Whether you're a beginner or looking to deepen your knowledge, the Python Institute offers a supportive learning environment to help you achieve your goals.</p>
       </div>
-      <div class="col-md-3 m-0">
+      <div class="col-md-3 m-0" style="font-size: 1rem;">
         <h3 class="mt-2">Our Services</h3>
         <ol>
-          <li>Python Programming</li>
-          
+          <li>Python Programming</li>        
           <li>Data Analysis</li>
-          <li>Machine Learning</li>
-        
+          <li>Machine Learning</li>      
           <li>Artificial Intelligence</li>
           <li>Data Science</li>
-          <li>Full Stack Development</li>
-          
+          <li>Full Stack Development</li>         
         </ol>
       </div>
       <div class="col-md-2 ">
         <h3 class="mt-2">Social Media</h3>
-        <li>
-
-          
+        <li>       
           <a href="https://www.instagram.com/madhava___reddy/">
             <img   src="{% static '../static/images/instagram.png' %}" alt="My image">
-
           </a>
         </li>
         <li>
@@ -72,17 +67,13 @@
         </li>
         <li>
           <a href="https://web.whatsapp.com/"><img src=" {% static '../static/images/whatsapp.png' %}" alt="whatsapp"></a>
-
         </li>
         <li>
           <a href="https://github.com/madhavareddyrb/instituteproject"> <img style='border-radius:20px' src="{% static '../static/images/github.jpg' %}" alt="github"></a>
         </li>
         <li>
-
           <a href="https://www.linkedin.com/in/madhavareddyrb/"><img style='border-radius:20px' src="{% static '../static/images/linkedin-big-logo.png' %}" alt="linkedin"></a>
         </li>
-        
-
       </div>
       <div class="col-md-1">
         <h3 class="mt-2">Pages</h3>
@@ -92,8 +83,7 @@
         <a href="{% url 'feedback' %}">Feedback</a>
         <a href="http://127.0.0.1:8000/gallery">Gallery</a>
         <a href="{% url 'gallery' %'}">Gallery</a>
-      </div>
-      
+      </div>     
     </div>
   </footer>
 </body>

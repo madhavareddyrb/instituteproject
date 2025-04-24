@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 #forms import ContactForm
 #from .models import CourseDetails
 from .forms import RegistraionForm, FeedbackForm
@@ -11,7 +11,17 @@ from django.contrib.auth.decorators import login_required
 # Register your models here.
 
 def mainpage(request):
-    return render(request, 'mainPage.html')
+  pages = [
+        {'name': 'Home', 'template': 'home.html'},
+        {'name': 'Contact', 'template': 'contact.html'},
+        {'name': 'Services', 'template': 'services.html'},
+        {'name': 'Feedback', 'template': 'feedback.html'},
+        {'name': 'Gallery', 'template': 'gallery.html'},
+        {'name': 'Register', 'template': 'register.html'},
+        {'name': 'Login', 'template': 'login.html'},
+    ]
+  template = request.GET.get('template', 'mainPage.html')  
+  return render(request, template, {'pages' : pages})
 
 def home(request):
   return render(request, 'home.html')
@@ -21,9 +31,9 @@ def services(request):
   return render(request,'services.html' ,{'courses':courses})
 
 """ @login_required
-def feedback(request):
-  return render(request,'feedback.html')
- """
+def .html(request):
+  retu.htmlrn render(request,'.html.html')
+ .html.html"""
 def contact(request):
   return render(request, 'contact.html')
 
@@ -44,7 +54,6 @@ def contact(request):
 def contact_success(request):
   return render(request, 'contact_success.html')
 
-@login_required
 def feedback(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
@@ -54,21 +63,19 @@ def feedback(request):
             feedback.save()
             return redirect('feedback')
     else:
-        form = FeedbackForm()
-    
+        form = FeedbackForm() 
     feedbacks = Feedback.objects.all()
     return render(request, 'feedback.html', {'form': form, 'feedbacks': feedbacks})
 
-<<<<<<< HEAD
-=======
+
 @login_required
 def update_feedback(request, pk):
-    feedback = Feedback.objects.get(pk=pk)
+    feedback = get_object_or_404(Feedback, pk=pk)  # Retrieve the feedback object or return 404
     if request.method == 'POST':
         form = FeedbackForm(request.POST, instance=feedback)
         if form.is_valid():
             form.save()
-            return redirect('feedback')
+            return redirect('feedback')  # Redirect to the feedback page
     else:
         form = FeedbackForm(instance=feedback)
     return render(request, 'update_feedback.html', {'form': form})
@@ -81,20 +88,18 @@ def delete_feedback(request, pk):
         return redirect('feedback')
     return render(request, 'delete_feedback.html', {'feedback': feedback})
 
->>>>>>> 6c65665 (merged)
-
 def register_view(request):
-   if request.method == "POST":
+  if request.method == "POST":
     form = RegistraionForm(request.POST)
     if form.is_valid():
       user = form.save()
       login(request,user)
-      return render("request, 'registraion_success.html")
+      return render(request, 'registraion_success.html')
     else:
-      return render(request, "registraion_success.html", {"form":form})
-   else:
+      return render(request, "register.html", {"form":form})
+  else:
     form = RegistraionForm()
-   return render(request, "register.html", {"form":form})
+    return render(request, "register.html", {"form":form})
 
 
 def registraion_success(request):
@@ -110,13 +115,15 @@ def login_view(request):
       if user is not None:
         login(request, user)
         return redirect('mainpage')
+      else:
+        form = AuthenticationForm()
+        return render(request, "login.html", {"form" : form, "error": "Invalid username or password"})
   else:
-      form = AuthenticationForm()
-  return render(request, "login.html", {"form" : form})
+    form = AuthenticationForm()
+    return render(request, "login.html", {"form": form})
 
 def logout_view(request):
   logout(request)
-
   return redirect("login")
 
 

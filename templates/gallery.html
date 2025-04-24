@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% block head %}
+  {% endblock %}
 {% load static %}
 {% block nth %}
 <link rel="stylesheet" href="{% static '../static/style.css' %}">
@@ -29,9 +30,6 @@
     <img style="width: 300px; height: 250px;
     " src="{% static '../static/images/img6.jpeg' %}" alt="My image">
   </div>
-
-
- 
 </div>
 
 {% endblock %}

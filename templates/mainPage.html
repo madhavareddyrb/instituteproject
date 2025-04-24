@@ -1,11 +1,16 @@
-{% extends 'base.html' %}
-
-{% block nth %}
-{% load static %}
-<link rel="stylesheet" href="{% static '../static/style.css' %}">
-
-<h4 class="">MainPage</h4>
-
-
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institute Page</title>
+</head>
+<body>
+  <h1>Welcome to the Institute</h1>
+  <ul>
+    {% for page in pages %} 
+    <li><a href="{% url 'mainpage' %}?template={{ page.template }} ">{{ page.name }}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

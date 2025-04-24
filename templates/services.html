@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
+{% block head %}
+    Services,What we Offer 
+  {% endblock %}
 {% block nth%}
 {% load static %}
 <link rel="stylesheet" href="{% static '../static/style.css' %}">
 <style>
   tr,td,th,thead{
+    
     color:#fff;
     border:2px solid white; 
   }
@@ -11,7 +15,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <table class = "table">
+      <table class = "table mt-5">
         <thead>
           <tr>          
             <th>course_name</th>
@@ -44,7 +48,7 @@
  
 </div>
 <div class="container-fluid row offset-4 col-md-4">
-  <h3 style="color:#03045e;">Classess are availble in both Offline and Online</h3>
+  <h3 style="color: violet;">Classess are availble in both Offline and Online</h3>
   <img style="border-radius:10px;" src="{% static '../static/images/onoff.jpg' %}" alt="">
 </div>
 {% endblock %}

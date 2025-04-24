@@ -7,8 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 class ContactForm(forms.ModelForm):
   class Meta:
     model = contact
-    fields = [
-      'name','email','message']
+    fields = ['name','email','message']
 
 
 
